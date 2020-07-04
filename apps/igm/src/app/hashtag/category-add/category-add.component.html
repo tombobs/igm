@@ -1,0 +1,12 @@
+
+<form [formGroup]="form" (submit)="addCategory()" class="category-form">
+  <mat-form-field>
+    <mat-label>New category</mat-label>
+    <input formControlName="text" matInput autocomplete="off"/>
+  </mat-form-field>
+
+  <button mat-button mat-stroked-button>Add</button>
+</form>
+
+<form  class="category-form"></form>
+

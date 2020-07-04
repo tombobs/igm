@@ -1,0 +1,17 @@
+.border {
+  --border-color: #bbb;
+  --border-width: 1px;
+  --border-style: solid;
+
+
+
+  --border: var(--border-width) var(--border-style) var(--border-color);
+}
+
+.border {
+  border: var(--border);
+
+  &.error {
+    border-color: var(--error-color);
+  }
+}

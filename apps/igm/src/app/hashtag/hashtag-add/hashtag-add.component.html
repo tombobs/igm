@@ -1,0 +1,15 @@
+
+<form [formGroup]="formGroup" #form="ngForm" (submit)="addHashtag()" class="hashtag-form">
+  <mat-form-field>
+    <mat-label>New hashtag</mat-label>
+    <input formControlName="text" matInput autocomplete="off"/>
+  </mat-form-field>
+
+  <button mat-button mat-stroked-button>Add</button>
+</form>
+
+<form  class="category-form">
+  <igm-category-list [class.error]="form.submitted && !selectedCategories.length"
+                     [(selectedCategories)]="selectedCategories"
+                     [categories$]="categories$"></igm-category-list>
+</form>

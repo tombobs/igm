@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Message } from '@rly.gd/api-interfaces';
 
 @Component({
-  selector: 'rly.gd-root',
+  selector: 'igm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

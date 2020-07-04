@@ -1,0 +1,25 @@
+<mat-tab-group>
+
+  <mat-tab label="Search">
+    <ng-template matTabContent>
+      <igm-hashtags-search (search)="onSearchHashtags($event)"
+                           [hashtags$]="hashtags$"
+                           [categories$]="categories$"
+                           [categoryCount$]="categoryCount$"></igm-hashtags-search>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Add new">
+    <ng-template matTabContent>
+      <igm-hashtags-add [categories$]="categories$" (add)="onAddHashtag($event)"></igm-hashtags-add>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Categories">
+    <ng-template matTabContent>
+      <igm-category-add (add)="onAddCategory($event)"></igm-category-add>
+      <igm-category-list [categories$]="categories$" ></igm-category-list>
+    </ng-template>
+  </mat-tab>
+
+</mat-tab-group>

@@ -1,0 +1,27 @@
+<div class="slider">
+  <span>Give me</span>
+
+  <mat-slider
+    class="mat-slider"
+    [(ngModel)]="numberOfCategories"
+    [max]="(categoryCount$ | async)"
+    [min]="1"
+    [step]="1">
+  </mat-slider>
+
+  <div class="selected-count">
+    <input matInput [(ngModel)]="numberOfCategories"/>
+  </div>
+
+  <button mat-button mat-stroked-button>
+    <mat-icon>search</mat-icon>
+    Search
+  </button>
+</div>
+
+
+<div class="categories">
+  <div>With these categories</div>
+  <igm-category-list [categories$]="categories$"
+                     [(selectedCategories)]="selectedCategories"></igm-category-list>
+</div>

@@ -1,0 +1,11 @@
+@import "../../../styles/styles";
+
+:host {
+  display: block;
+  @extend .border;
+}
+
+
+.count {
+  @extend .muted;
+}
