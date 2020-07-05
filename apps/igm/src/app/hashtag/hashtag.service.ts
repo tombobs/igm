@@ -15,9 +15,9 @@ export class HashtagService {
   constructor(private httpClient: HttpClient) { }
 
   getHashtags(search: IHashtagSearch = {}): Observable<IHashtag[]> {
-    const params = new HttpParams();
+    const params = {};
     for (const key in search) {
-      params.append(key, search[key].toString());
+      params[key] = search[key].toString();
     }
 
     return this.httpClient.get<IHashtag[]>(this.apiUrl, {params});

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, Post, Query } from '@nestjs/common';
 import { IHashtag } from '@rly.gd/api-interfaces';
 import { Hashtag } from './hashtag';
 import { HashtagService } from './hashtag.service';
@@ -10,7 +10,10 @@ export class HashtagController {
   }
   
   @Get('/')
-  find(): Promise<IHashtag[]> {
+  find(@Query('categoryIds') categoryIds: string): Promise<IHashtag[]> {
+    if (categoryIds) {
+      return this.hashtagsService.search(categoryIds.split(','));
+    }
     return this.hashtagsService.find();
   }
 

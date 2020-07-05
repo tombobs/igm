@@ -3,8 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { AutoUnsubscribe } from '../../../auto-unsubscribe';
-import { Hashtag } from '../hashtag';
+import { Hashtag } from '../../hashtag';
 
 @Component({
   selector: 'igm-hashtags-add',

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HashtagsSearchComponent } from './hashtags-search.component';
+import { NavItemComponent } from './nav-item.component';
 
-describe('HashtagsSearchComponent', () => {
-  let component: HashtagsSearchComponent;
-  let fixture: ComponentFixture<HashtagsSearchComponent>;
+describe('NavItemComponent', () => {
+  let component: NavItemComponent;
+  let fixture: ComponentFixture<NavItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HashtagsSearchComponent ]
+      declarations: [ NavItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HashtagsSearchComponent);
+    fixture = TestBed.createComponent(NavItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

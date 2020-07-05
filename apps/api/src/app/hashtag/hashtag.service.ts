@@ -22,6 +22,14 @@ export class HashtagService {
       .getMany();
   }
 
+  search(categoryIds: string[]): Promise<Hashtag[]> {
+    return this.hashtagsRepository
+      .createQueryBuilder('hashtag')
+      .leftJoinAndSelect('hashtag.categories', 'category')
+      .where('category.id IN (:...ids)', {ids: categoryIds})
+      .getMany();
+  }
+
   findById(id: string): Promise<Hashtag> {
     return this.hashtagsRepository.findOne(id);
   }

@@ -1,0 +1,11 @@
+:host {
+  background: var(--nav-bg-color);
+  color: var(--nav-text-color);
+  display: flex;
+  align-items: center;
+
+  .title {
+    margin-left: 4rem;
+    font-size: 2rem;
+  }
+}

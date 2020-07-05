@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'igm-category-add',
@@ -15,13 +16,17 @@ export class CategoryAddComponent implements OnInit {
     text: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   addCategory(): void {
     const text: string = this.form.value.text;
+    if (!text) {
+      this.toastr.error('Category name is required');
+      return;
+    }
     this.add.emit(text);
     this.reset();
   }

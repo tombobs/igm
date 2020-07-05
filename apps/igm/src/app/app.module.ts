@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { HashtagModule } from './hashtag/hashtag.module';
 import { IgmHttpInterceptor } from './http-interceptor';
+import { LayoutModule } from './layout/layout.module';
+import { MATERIAL_IMPORTS } from './material-imports';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,9 @@ import { IgmHttpInterceptor } from './http-interceptor';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    HashtagModule
+    HashtagModule,
+    LayoutModule,
+    MATERIAL_IMPORTS
   ],
   providers: [
     { provide: 'API_URL', useValue: 'http://localhost:3333/api/' },

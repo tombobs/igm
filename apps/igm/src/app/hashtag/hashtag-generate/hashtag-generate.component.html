@@ -1,0 +1,27 @@
+<div class="top">
+
+  <!--<mat-slider-->
+  <!--class="mat-slider"-->
+  <!--[(ngModel)]="numberOfCategories"-->
+  <!--[max]="(categoryCount$ | async)"-->
+  <!--[min]="1"-->
+  <!--[step]="1">-->
+  <!--</mat-slider>-->
+
+  <!--<div class="selected-count">-->
+  <!--<input matInput [(ngModel)]="numberOfCategories"/>-->
+  <!--</div>-->
+
+  <button mat-button mat-stroked-button (click)="onSearch()">
+    <mat-icon>search</mat-icon>
+    Generate random hashtags
+  </button>
+</div>
+
+
+<div class="categories">
+  <div class="heading">With these categories</div>
+  <igm-category-list [class.error]="submitted && !selectedCategories.length"
+                     [categories$]="categories$"
+                     [(selectedCategories)]="selectedCategories"></igm-category-list>
+</div>
