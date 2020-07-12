@@ -1,0 +1,7 @@
+<form [formGroup]="form"
+      (submit)="addCategory()">
+
+  <igm-input formControlName="text">New category</igm-input>
+
+  <igm-button icon="add" [disabled]="form.invalid">Add</igm-button>
+</form>

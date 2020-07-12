@@ -1,0 +1,17 @@
+:root {
+
+  --font-size: 10px;
+  --font-family: Roboto, "Helvetica Neue", sans-serif;
+  --padding: 1.5rem;
+  --content-max-width: 1000px;
+  --animation: cubic-bezier(0.35, 0, 0.25, 1) 500ms;
+
+  --nav-bg-color: black;
+  --nav-text-color: white;
+  --border-color: #bbb;
+  --error-color: #e12222;
+
+  --half-padding: calc(var(--padding) / 2);
+  --third-padding: calc(var(--padding) / 3);
+  --querter-padding: calc(var(--padding) / 4);
+}

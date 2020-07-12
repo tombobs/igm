@@ -1,8 +1,0 @@
-<mat-selection-list #categoryControl>
-  <mat-list-option *ngFor="let category of (categories$ | async)" [value]="category">
-    <div>
-      {{category.text}}
-      <span class="muted" *ngIf="category.hashtagCount">({{category.hashtagCount}})</span>
-    </div>
-  </mat-list-option>
-</mat-selection-list>

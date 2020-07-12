@@ -1,0 +1,20 @@
+igm-root {
+
+  .mat-drawer-inner-container,
+  .mat-tab-body.mat-tab-body-active,
+  .mat-tab-body-content,
+  .mat-tab-body-wrapper,
+  .mat-tab-group {
+    overflow: visible;
+    height: 100%;
+  }
+
+  .mat-list-text > * {
+    display: inline;
+  }
+
+  .mat-spinner {
+    margin: auto;
+  }
+}
+

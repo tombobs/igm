@@ -1,0 +1,6 @@
+<mat-form-field>
+  <mat-label>
+    <ng-content></ng-content>
+  </mat-label>
+  <input #inputControl matInput autocomplete="off" (input)="onValueChange($event.target.value)"/>
+</mat-form-field>

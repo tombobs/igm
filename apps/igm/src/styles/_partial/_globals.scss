@@ -1,16 +1,10 @@
-@import "variables";
-
-
 html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
   margin: 0;
   font-family: var(--font-family);
   font-size: var(--font-size);
-}
-
-.muted {
-  opacity: 0.5;
 }

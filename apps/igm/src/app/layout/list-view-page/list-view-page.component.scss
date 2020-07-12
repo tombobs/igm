@@ -1,0 +1,88 @@
+@import "../../../styles/main";
+
+$buttonHeight: 5rem;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.view {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  margin-top: 4rem;
+  height: 68vh;
+}
+
+.list {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  height: 68vh;
+  max-width: var(--content-max-width);
+}
+
+.mat-drawer-container, .mat-drawer-inner-container {
+  background: white;
+  overflow: visible;
+}
+
+.mat-drawer {
+  width: 30vw;
+  padding: 15px 15px 15px 25px;
+  border: none;
+  overflow: visible;
+}
+
+//:host {
+//  display: flex;
+//}
+//
+//:host(.show-side) {
+//  .list {
+//    width: 50%;
+//  }
+//  .view {
+//    width: 48%;
+//    opacity: 1;
+//  }
+//}
+//
+//.list {
+//  width: 100%;
+//  transition: width var(--animation);
+//}
+//
+//.view {
+//  width: 0;
+//  opacity: 0;
+//  transition: width var(--animation);
+//  margin-left: auto;
+//  overflow: hidden;
+//  position: relative;
+//  top: 5.32rem;
+//  @extend .border;
+//
+//  .buttons {
+//    justify-content: flex-end;
+//  }
+//}
+//
+//.view-container {
+//  @extend .border;
+//  height: 100%;
+//}
+//
+//.buttons {
+//  display: flex;
+//  padding: var(--padding);
+//
+//  ::ng-deep > * {
+//    margin-right: 1rem;
+//  }
+//}

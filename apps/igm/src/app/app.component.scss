@@ -1,10 +1,15 @@
 :host {
+  --topNavHeight: 50px;
+  --sideBarWidth: 100px;
+}
+
+:host {
   display: grid;
   grid-template-areas:
     "logo top-nav"
     "left content";
-  grid-template-rows: 50px 1fr;
-  grid-template-columns: 100px 1fr;
+  grid-template-rows: var(--topNavHeight) 1fr;
+  grid-template-columns: var(--sideBarWidth) 1fr;
 }
 
 .logo {
@@ -15,7 +20,6 @@
 
 .top-nav {
   grid-area: top-nav;
-
 }
 
 .left {
@@ -27,5 +31,6 @@
 .content {
   grid-area: content;
   padding: var(--padding);
-  max-width: var(--content-max-width);
+  height: calc(100vh - var(--topNavHeight));
+  max-height: calc(100vh - var(--topNavHeight));
 }

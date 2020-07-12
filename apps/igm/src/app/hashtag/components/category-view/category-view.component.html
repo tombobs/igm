@@ -1,0 +1,8 @@
+<h4 [innerText]="category?.text"></h4>
+
+<igm-hashtag-list *ngIf="category"
+                  [multiple]="true"
+                  (selectedHashtagsChange)="hashtagsChange.emit($event)"
+                  [hashtags$]="hashtags$"
+                  [withCounts]="false"
+                  [selectedHashtags]="category.hashtags"></igm-hashtag-list>
