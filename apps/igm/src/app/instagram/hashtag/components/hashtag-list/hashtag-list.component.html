@@ -1,0 +1,22 @@
+<div class="search">
+  <igm-input class="no-padding" icon="search"
+             [(ngModel)]="searchTerm">Search</igm-input>
+</div>
+
+<mat-spinner [diameter]="50" class="spinner" *ngIf="loading$ | async"></mat-spinner>
+
+<mat-selection-list [multiple]="multiple"
+                    [compareWith]="compareWith">
+
+  <mat-list-option *ngFor="let hashtag of (hashtags$ | async) | igmTextFilter: searchTerm"
+                   [value]="hashtag" [selected]="isSelected(hashtag)">
+
+    <div>
+      <span>#{{hashtag.text}}</span>
+      <span *ngIf="withCounts" class="muted">
+        ({{hashtag.categories?.length || 0}})
+      </span>
+    </div>
+
+  </mat-list-option>
+</mat-selection-list>

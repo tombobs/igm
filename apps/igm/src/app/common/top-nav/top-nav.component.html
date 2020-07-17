@@ -1,0 +1,28 @@
+<igm-nav>
+  <igm-nav-item *ngFor="let item of items"
+                [routerLink]="'/' + item.route"
+                routerLinkActive
+                #rla="routerLinkActive"
+                [class.active]="rla.isActive">
+
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    <span>{{item.label}}</span>
+  </igm-nav-item>
+</igm-nav>
+
+<div class="title">Social media manager</div>
+
+<div class="right">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <div mat-menu-item [disabled]="true">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{loggedInUser.username}}</span>
+    </div>
+
+    <button mat-menu-item (click)="logout.emit()">Logout</button>
+  </mat-menu>
+</div>

@@ -1,5 +1,5 @@
-import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
-import { AfterLoad, Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ICategory, IHashtag, IUser } from '@rly.gd/api-interfaces';
+import { AfterLoad, Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('category')
 export class Category implements ICategory {
@@ -17,7 +17,8 @@ export class Category implements ICategory {
   @ManyToMany('Hashtag', 'categories')
   hashtags: IHashtag[];
 
-  hashtagCount: number;
+  @ManyToOne('User', 'categories')
+  user: IUser;
 
   static create(category: ICategory): Category {
     return new Category(category);

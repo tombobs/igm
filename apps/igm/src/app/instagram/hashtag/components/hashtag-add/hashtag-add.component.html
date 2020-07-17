@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup">
+
+  <igm-input class="no-padding" formControlName="text">
+    New hashtag
+
+    <span matSuffix>
+      <mat-icon [class.disabled]="formGroup.invalid" (click)="addHashtag()">add</mat-icon>
+    </span>
+  </igm-input>
+</form>

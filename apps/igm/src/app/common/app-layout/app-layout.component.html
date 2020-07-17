@@ -1,0 +1,17 @@
+<div class="logo" routerLink="/home">
+  <mat-icon svgIcon="rly-gd"></mat-icon>
+</div>
+
+<igm-top-nav class="top-nav"
+             [loggedInUser]="loggedInUser$ | async"
+             (logout)="onLogout()"></igm-top-nav>
+
+<div class="left">
+  <igm-nav class="side">
+    <ng-content select="[side]"></ng-content>
+  </igm-nav>
+</div>
+
+<div class="content">
+  <ng-content select="[content]"></ng-content>
+</div>

@@ -1,0 +1,23 @@
+$border: 1px solid white;
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  padding: 15px;
+  border-left: $border;
+  border-right: $border;
+  border-bottom: $border;
+  width: 100%;
+  cursor: pointer;
+
+  &.active, &:hover {
+    opacity: 1;
+  }
+}
+
+:host-context(.side) {
+  border-left-style: none;
+  border-top: $border;
+}

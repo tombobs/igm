@@ -9,10 +9,10 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { ComponentsModule } from './components/components.module';
-import { HashtagModule } from './hashtag/hashtag.module';
-import { IgmHttpInterceptor } from './http-interceptor';
-import { LayoutModule } from './layout/layout.module';
+import { IgmCommonModule } from './common/common.module';
+import { IgmHttpInterceptor } from './common/http-interceptor';
+import { AuthEffects, authReducer } from './store';
+import { WelcomeModule } from './welcome/welcome.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,14 +21,11 @@ import { LayoutModule } from './layout/layout.module';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({auth: authReducer}),
+    EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
-
     AppRoutingModule,
-    ComponentsModule,
-    HashtagModule,
-    LayoutModule
+    IgmCommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IgmHttpInterceptor, multi: true }

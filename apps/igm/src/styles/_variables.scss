@@ -3,7 +3,7 @@
   --font-size: 10px;
   --font-family: Roboto, "Helvetica Neue", sans-serif;
   --padding: 1.5rem;
-  --content-max-width: 1000px;
+  --content-max-width: 80vw;
   --animation: cubic-bezier(0.35, 0, 0.25, 1) 500ms;
 
   --nav-bg-color: black;
@@ -15,3 +15,7 @@
   --third-padding: calc(var(--padding) / 3);
   --querter-padding: calc(var(--padding) / 4);
 }
+
+$sizeSm: 500px;
+$sizeMd: 800px;
+$sizeLg: 1000px;

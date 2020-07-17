@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+  max-width: 500px;
+}
+
+:host(.no-padding) {
+  ::ng-deep {
+    .mat-form-field-wrapper {
+      padding: 0;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 500px;
+}

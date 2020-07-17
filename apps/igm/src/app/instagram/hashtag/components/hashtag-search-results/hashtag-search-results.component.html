@@ -1,0 +1,15 @@
+<div class="large bold">
+  Generated hashtags
+</div>
+
+<div class="hashtags">
+  {{hashtags}}
+</div>
+
+<div class="buttons">
+  <button mat-stroked-button [cdkCopyToClipboard]="hashtags" (cdkCopyToClipboardCopied)="onCopy()">
+    <mat-icon>copy</mat-icon>
+    Copy to clipboard
+  </button>
+</div>
+

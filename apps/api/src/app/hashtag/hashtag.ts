@@ -1,5 +1,6 @@
-import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ICategory, IHashtag, IUser } from '@rly.gd/api-interfaces';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../users/user';
 
 @Entity('hashtag')
 export class Hashtag implements IHashtag {
@@ -14,10 +15,6 @@ export class Hashtag implements IHashtag {
   @JoinTable({name: 'hashtag_categories'})
   categories: ICategory[];
 
-  // static create(hashtag: IHashtag): Hashtag {
-  //   const h = new Hashtag();
-  //   h.text = hashtag.text;
-  //   h.categories = hashtag.categories.map(c => Category.create(c));
-  //   return h;
-  // }
+  @ManyToOne(type => User, user => user.hashtags)
+  user: IUser;
 }

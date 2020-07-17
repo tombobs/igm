@@ -1,0 +1,25 @@
+<igm-list-view-page [showSide]="!!(selectedCategory$ | async)"
+                    (showSideChange)="onShowSideChange($event)">
+
+  <ng-container igm-list>
+    <igm-category-list class="scroll" [categories$]="categories$"
+                       [selectedCategories]="[selectedCategory$ | async]"
+                       (selectedCategoriesChange)="onSelectedCategoriesChange($event)"></igm-category-list>
+  </ng-container>
+
+  <ng-container igm-list-buttons>
+    <igm-category-add (add)="onAdd($event)"></igm-category-add>
+  </ng-container>
+
+  <ng-container igm-view>
+    <igm-category-view [category]="selectedCategory$ | async"
+                       (hashtagsChange)="onHashtagsChange($event)"
+                       [hashtags$]="hashtags$"></igm-category-view>
+  </ng-container>
+
+  <ng-container igm-view-buttons>
+    <igm-button icon="delete" (click)="onDeleteClick()">Delete</igm-button>
+  </ng-container>
+
+</igm-list-view-page>
+

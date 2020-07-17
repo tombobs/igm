@@ -1,0 +1,12 @@
+<div class="bg-image"></div>
+
+<form [formGroup]="form" (ngSubmit)="login()">
+
+  <igm-input formControlName="username">Username</igm-input>
+
+  <igm-input formControlName="password" type="password">Password</igm-input>
+
+  <div class="buttons">
+    <igm-button icon="login">Login</igm-button>
+  </div>
+</form>

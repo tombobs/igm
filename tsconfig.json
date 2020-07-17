@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rly.gd/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@rly.gd/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@igm/*": ["apps/igm/src/app/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

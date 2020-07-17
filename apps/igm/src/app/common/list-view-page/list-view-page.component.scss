@@ -1,0 +1,54 @@
+@import "../../../styles/main";
+
+$contentHeight: 68vh;
+$contentGutterTop: 67px;
+
+:host {
+  display: block;
+  height: 100%;
+
+  &.list-error .list {
+    border-color: var(--error-color);
+  }
+}
+
+
+.view {
+  padding: var(--half-padding);
+  border: var(--border);
+  height: $contentHeight;
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: $contentHeight;
+  padding: var(--querter-padding);
+  border: var(--border);
+  max-width: var(--content-max-width);
+}
+
+.list-buttons {
+  display: flex;
+  align-items: center;
+  padding: var(--half-padding);
+  height: $contentGutterTop;
+}
+
+.mat-drawer-container, .mat-drawer-inner-container {
+  background: white;
+  overflow: visible;
+}
+
+.mat-drawer {
+  width: 30vw;
+  padding: 0 0 0 var(--half-padding);
+  border: none;
+  overflow: visible;
+}

@@ -1,10 +1,25 @@
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
   margin: 0;
   font-family: var(--font-family);
   font-size: var(--font-size);
+}
+
+:root {
+  --font-min-size: 14px;
+  --font-max-size: 52px;
+  --viewport-min-width: 300px;
+  --viewport-max-width: 4000px;
+}
+
+//body * {
+//  line-height: calc(1.3em + (5 - 1.2) * ((100vw - 300px) / (4000 - 300))) !important;
+//  font-size: calc(10px + 26 * ((100vw - 300px) / (4000 - 300))) !important;
+//}
+
+* {
+  box-sizing: border-box;
 }

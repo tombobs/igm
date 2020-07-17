@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+
+  <igm-input class="no-padding" formControlName="text">
+    New category
+
+    <span matSuffix>
+      <mat-icon [class.disabled]="form.invalid" (click)="addCategory()">add</mat-icon>
+    </span>
+  </igm-input>
+</form>

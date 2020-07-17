@@ -1,0 +1,54 @@
+:host {
+  --topNavHeight: 50px;
+  --sideBarWidth: 100px;
+}
+
+:host {
+  display: grid;
+  grid-template-areas:
+    "logo top-nav"
+    "left content";
+  grid-template-rows: var(--topNavHeight) 1fr;
+  grid-template-columns: var(--sideBarWidth) 1fr;
+}
+
+@media screen and (max-width: 700px) {
+  :host {
+    grid-template-areas: "content";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .logo, .top-nav, .left {
+    display: none;
+  }
+}
+
+.logo {
+  grid-area: logo;
+  background: white;
+  color: var(--nav-text-color);
+
+  mat-icon {
+    width: 100%;
+    padding: 1px;
+    height: 100%;
+  }
+}
+
+.top-nav {
+  grid-area: top-nav;
+}
+
+.left {
+  grid-area: left;
+  background: var(--nav-bg-color);
+  color: var(--nav-text-color);
+}
+
+.content {
+  grid-area: content;
+  padding: var(--padding);
+  height: calc(100vh - var(--topNavHeight));
+  max-height: calc(100vh - var(--topNavHeight));
+}

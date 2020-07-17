@@ -1,0 +1,26 @@
+<igm-list-view-page [showSide]="!!(hashtagSearchResults$ | async)"
+                    (showSideChange)="onShowSideChange($event)"
+                    [class.list-error]="submitted && !selectedCategories.length"
+                    class="reduce-view-padding">
+
+  <ng-container igm-list>
+    <div class="heading">With these categories</div>
+    <igm-category-list [categories$]="categories$"
+                       [withCounts]="true"
+                       [multiple]="true"
+                       [loading$]="categoriesLoading$"
+                       [(selectedCategories)]="selectedCategories"></igm-category-list>
+  </ng-container>
+
+  <ng-container igm-view>
+    <igm-hashtag-search-results [searchResults]="hashtagSearchResults$ | async"></igm-hashtag-search-results>
+  </ng-container>
+
+  <ng-container igm-list-buttons>
+    <button mat-button mat-stroked-button (click)="onSearch()">
+      <mat-icon>search</mat-icon>
+      Generate random hashtags
+    </button>
+  </ng-container>
+</igm-list-view-page>
+

@@ -11,27 +11,25 @@ export class HashtagService {
               private hashtagsRepository: Repository<Hashtag>) {
   }
 
-  find(): Promise<Hashtag[]> {
-    return this.hashtagsRepository.find();
-  }
-
-  findWithCategories(ids: number[]): Promise<Hashtag[]> {
+  findWithCategories(ids: number[], userId: number): Promise<Hashtag[]> {
     const query = this.hashtagsRepository
       .createQueryBuilder('hashtag')
-      .leftJoinAndSelect('hashtag.categories', 'category');
-
+      .leftJoinAndSelect('hashtag.categories', 'category')
+      .leftJoinAndSelect('hashtag.user', 'user')
+      .where('user.id = :userId', {userId});
     if (ids) {
       query.where('hashtag.id IN (:...ids)', {ids});
     }
-
     return query.getMany();
   }
 
-  async generate(categoryIds: string[]): Promise<Hashtag[]> {
+  async generate(categoryIds: string[], userId: number): Promise<Hashtag[]> {
     const hashtags = await this.hashtagsRepository
       .createQueryBuilder('hashtag')
       .leftJoinAndSelect('hashtag.categories', 'category')
       .where('category.id IN (:...ids)', {ids: categoryIds})
+      .leftJoinAndSelect('hashtag.user', 'user')
+      .where('user.id = :userId', {userId})
       .getMany();
 
     this.shuffleHashtags(hashtags);

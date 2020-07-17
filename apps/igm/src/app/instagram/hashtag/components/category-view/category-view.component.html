@@ -1,0 +1,9 @@
+<div class="title">
+  Category: <span class="bold">{{category?.text}}</span>
+</div>
+
+<igm-hashtag-list [multiple]="true"
+                  [withCounts]="false"
+                  (selectedHashtagsChange)="hashtagsChange.emit($event)"
+                  [hashtags$]="hashtags$"
+                  [selectedHashtags]="category?.hashtags"></igm-hashtag-list>

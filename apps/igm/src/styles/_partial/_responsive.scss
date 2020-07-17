@@ -1,0 +1,14 @@
+@import "../variables";
+
+@media screen and (max-width: $sizeSm) {
+  :root {
+    --padding: var(--querter-padding);
+  }
+}
+
+
+@media screen and (max-width: $sizeMd) {
+  :root {
+    --padding: var(--half-padding);
+  }
+}

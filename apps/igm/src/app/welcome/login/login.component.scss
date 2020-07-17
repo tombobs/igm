@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background: white;
+  z-index: 2;
+  padding: var(--padding);
+  border-radius: 5px;
+  width: 20vw;
+  min-width: 290px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.bg-image {
+  background-image: url("../../../assets/login-bg.jpg");
+  position: absolute;
+  filter: blur(8px);
+
+  height: 100vh;
+  width: 100vw;
+}

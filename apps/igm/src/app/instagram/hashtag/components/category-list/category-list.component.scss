@@ -1,0 +1,16 @@
+@import "../../../../../styles/main";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: var(--content-max-width);
+}
+
+mat-selection-list {
+  overflow: scroll;
+}
+
+.search {
+  padding: var(--half-padding) var(--half-padding) 0 var(--half-padding);
+}

@@ -1,28 +1,27 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeOrmModuleOptions } from './app.config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import { CategoryModule } from './category/category.module';
-import { Hashtag } from './hashtag/hashtag';
 import { HashtagModule } from './hashtag/hashtag.module';
+import { UserMiddleware } from './middleware';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'password',
-      database: 'igm',
-      autoLoadEntities: true,
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(typeOrmModuleOptions),
     HashtagModule,
-    CategoryModule
+    CategoryModule,
+    AuthModule,
+    UsersModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  providers: []
 })
-export class AppModule {}
+export class AppModule {
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer
+  //     .apply(UserMiddleware)
+  //     .forRoutes('*');
+  // }
+}
