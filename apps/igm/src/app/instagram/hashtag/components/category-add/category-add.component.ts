@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ICategory } from '@rly.gd/api-interfaces';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { Category } from './category';
   templateUrl: './category-add.component.html',
   styleUrls: ['./category-add.component.scss']
 })
-export class CategoryAddComponent implements OnInit {
+export class CategoryAddComponent {
 
   @Output()
   add = new EventEmitter<ICategory>();
@@ -18,9 +18,7 @@ export class CategoryAddComponent implements OnInit {
     text: new FormControl('', Validators.required)
   });
 
-  constructor(private toastr: ToastrService) { }
-
-  ngOnInit(): void {
+  constructor(private toastr: ToastrService) {
   }
 
   addCategory(): void {
@@ -39,5 +37,4 @@ export class CategoryAddComponent implements OnInit {
     this.form.markAsUntouched();
     this.form.updateValueAndValidity();
   }
-
 }

@@ -1,16 +1,16 @@
-@import "../../../../../styles/main";
+@import "variables";
 
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: var(--content-max-width);
+  max-width: $contentMaxWidth;
 }
 
 mat-selection-list {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .search {
-  padding: var(--half-padding) var(--half-padding) 0 var(--half-padding);
+  padding: $halfPadding $halfPadding 0 $halfPadding;
 }

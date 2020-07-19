@@ -1,3 +1,5 @@
+@import "variables";
+
 :host {
   display: flex;
   height: 100vh;
@@ -8,7 +10,7 @@
 form {
   background: white;
   z-index: 2;
-  padding: var(--padding);
+  padding: $padding;
   border-radius: 5px;
   width: 20vw;
   min-width: 290px;
@@ -20,9 +22,9 @@ form {
 }
 
 .bg-image {
-  background-image: url("../../../assets/login-bg.jpg");
+  background-image: url("../../../assets/Bg-image.png");
   position: absolute;
-  filter: blur(8px);
+  //filter: blur(8px);
 
   height: 100vh;
   width: 100vw;

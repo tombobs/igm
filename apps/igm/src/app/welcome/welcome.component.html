@@ -1,11 +1,16 @@
-<div class="container">
-  <div class="box">
-    <div class="buttons">
-      <igm-button routerLink="/welcome/login">Login</igm-button>
+<div class="bg-image"></div>
 
-      <igm-button (click)="scrollDown()" type="button">Create account</igm-button>
-    </div>
-  </div>
+<div class="container">
+  <div>Already have an account?</div>
+  <igm-button color="accent" routerLink="/welcome/login">Go To Login</igm-button>
+  <div class="signup-below">Or sign up below</div>
+  <hr>
+
+  <form [formGroup]="form" (ngSubmit)="signUp()">
+    <igm-input formControlName="email"></igm-input>
+    <igm-input formControlName="password" type="password"></igm-input>
+    <igm-button color="primary" [disabled]="form.invalid">Sign up</igm-button>
+  </form>
+
 </div>
 
-<igm-register></igm-register>

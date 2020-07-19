@@ -16,6 +16,9 @@ export class IgmButtonComponent implements OnInit {
   @Input()
   type = 'submit';
 
+  @Input()
+  color: 'primary' | 'accent' | 'warn' = 'primary';
+
   constructor() { }
 
   ngOnInit(): void {

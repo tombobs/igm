@@ -1,4 +1,4 @@
-<mat-form-field appearance="outline">
+<mat-form-field appearance="outline" [color]="color">
   <mat-label>
     <ng-content></ng-content>
   </mat-label>
@@ -7,7 +7,7 @@
          matInput
          autocomplete="off"
          [type]="type"
-         (input)="onValueChange($event.target.value)"/>
+         (input)="onValueChange(inputControl.value)"/>
 
   <div matSuffix>
     <ng-content select="[matSuffix]"></ng-content>

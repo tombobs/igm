@@ -1,5 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RegisterComponent } from './register/register.component';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { registerUser } from '@igm/store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'igm-welcome',
@@ -8,10 +10,15 @@ import { RegisterComponent } from './register/register.component';
 })
 export class WelcomeComponent {
 
-  @ViewChild(RegisterComponent, { read: ElementRef })
-  registerContainer: ElementRef;
+  form = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  });
 
-  scrollDown(): void {
-    this.registerContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  constructor(private store: Store) {
+  }
+
+  signUp(): void {
+    this.store.dispatch(registerUser({ user: this.form.value }));
   }
 }

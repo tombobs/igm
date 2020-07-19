@@ -1,0 +1,9 @@
+@import "variables";
+
+:host {
+  background: mat-color($igmAccent);
+}
+
+:host(.success) {
+  background: mat-color($igmPrimary);
+}

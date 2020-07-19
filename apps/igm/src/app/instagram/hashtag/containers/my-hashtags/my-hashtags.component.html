@@ -4,6 +4,7 @@
   <ng-container igm-list>
     <igm-hashtag-list [hashtags$]="hashtags$"
                       [multiple]="false"
+                      [loading$]="hashtagsLoading$"
                       [selectedHashtags]="[selectedHashtag$ | async]"
                       (selectedHashtagsChange)="onSelectedHashtagsChange($event)"></igm-hashtag-list>
   </ng-container>

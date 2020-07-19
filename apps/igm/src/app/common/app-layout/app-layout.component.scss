@@ -1,15 +1,12 @@
-:host {
-  --topNavHeight: 50px;
-  --sideBarWidth: 100px;
-}
+@import "variables";
 
 :host {
   display: grid;
   grid-template-areas:
     "logo top-nav"
     "left content";
-  grid-template-rows: var(--topNavHeight) 1fr;
-  grid-template-columns: var(--sideBarWidth) 1fr;
+  grid-template-rows: min(#{$topNavHeight}, #{$topNavMaxHeight}) 1fr;
+  grid-template-columns: $sideBarWidth 1fr;
 }
 
 @media screen and (max-width: 700px) {
@@ -26,8 +23,9 @@
 
 .logo {
   grid-area: logo;
-  background: white;
-  color: var(--nav-text-color);
+  background: $topNavBg;
+  color: $topNavTextColor;
+  max-height: $topNavMaxHeight;
 
   mat-icon {
     width: 100%;
@@ -38,17 +36,18 @@
 
 .top-nav {
   grid-area: top-nav;
+  max-height: $topNavMaxHeight;
 }
 
 .left {
   grid-area: left;
-  background: var(--nav-bg-color);
-  color: var(--nav-text-color);
+  background: $sideNavBg;
+  color: $sideNavTextColor;
 }
 
 .content {
   grid-area: content;
-  padding: var(--padding);
-  height: calc(100vh - var(--topNavHeight));
-  max-height: calc(100vh - var(--topNavHeight));
+  padding: 0 $padding;
+  height: calc(100vh - min(#{$topNavHeight}, #{$topNavMaxHeight}));
+  max-height: calc(100vh - min(#{$topNavHeight}, #{$topNavMaxHeight}));
 }

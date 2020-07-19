@@ -1,13 +1,18 @@
+@import "variables";
+
 .top {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--padding);
+  padding: $padding;
 }
 
 .categories {
-
   .heading {
     text-align: center;
   }
+}
+
+.generate-button-label {
+  margin-right: $padding;
 }

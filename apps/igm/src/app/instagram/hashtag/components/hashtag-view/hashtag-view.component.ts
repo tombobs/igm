@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'igm-hashtag-view',
@@ -17,6 +17,8 @@ export class HashtagViewComponent implements OnInit {
 
   @Input()
   categories$: Observable<ICategory[]>;
+
+  categoriesLoading$: Observable<boolean> = of(false);
 
   constructor() { }
 

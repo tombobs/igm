@@ -3,7 +3,7 @@ import { IHashtag } from './hashtag.interface';
 import { IHaveAnId } from './id.interface';
 
 export interface IUser extends IHaveAnId {
-  username: string;
+  email: string;
   password?: string;
   categories?: ICategory[];
   hashtags?: IHashtag[];

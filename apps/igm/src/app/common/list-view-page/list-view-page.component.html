@@ -2,9 +2,9 @@
   <ng-content select="[igm-list-buttons]"></ng-content>
 </div>
 
-<mat-drawer-container [autosize]="true">
+<mat-sidenav-container [autosize]="true">
 
-  <mat-drawer [opened]="showSide" mode="side" position="end">
+  <mat-sidenav [opened]="showSide" mode="side" position="end">
     <div class="view">
       <div class="buttons">
         <ng-content select="[igm-view-buttons]"></ng-content>
@@ -12,7 +12,7 @@
       </div>
       <ng-content select="[igm-view]"></ng-content>
     </div>
-  </mat-drawer>
+  </mat-sidenav>
 
   <div>
     <div class="list">
@@ -20,4 +20,4 @@
     </div>
   </div>
 
-</mat-drawer-container>
+</mat-sidenav-container>

@@ -1,16 +1,15 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrmModuleOptions } from './app.config';
+import { environment } from '../environments/environment';
 
 import { AuthModule } from './auth/auth.module';
 import { CategoryModule } from './category/category.module';
 import { HashtagModule } from './hashtag/hashtag.module';
-import { UserMiddleware } from './middleware';
 import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmModuleOptions),
+    TypeOrmModule.forRoot(environment.typeOrmConfig),
     HashtagModule,
     CategoryModule,
     AuthModule,
@@ -19,9 +18,4 @@ import { UsersModule } from './users/users.module';
   providers: []
 })
 export class AppModule {
-  // configure(consumer: MiddlewareConsumer) {
-  //   consumer
-  //     .apply(UserMiddleware)
-  //     .forRoutes('*');
-  // }
 }

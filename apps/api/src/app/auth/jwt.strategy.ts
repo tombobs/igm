@@ -2,7 +2,7 @@ import { IJWT, IUser } from '@rly.gd/api-interfaces';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
-import { jwtConstants } from './constants';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -10,11 +10,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: jwtConstants.secret,
+      secretOrKey: environment.auth.jwtSecret,
     });
   }
 
   async validate(payload: IJWT): Promise<IUser> {
-    return { id: payload.user.id, username: payload.user.username };
+    return { id: payload.user.id, email: payload.user.email };
   }
 }

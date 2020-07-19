@@ -17,14 +17,14 @@ export class UsersService {
   }
 
   async findOne(username: string): Promise<IUser> {
-    return this.usersRepository.findOne({username});
+    return this.usersRepository.findOne({email: username});
   }
 
   async validate(username: string, password: string): Promise<IUser> {
-    return this.usersRepository.findOne({username, password});
+    return this.usersRepository.findOne({email: username, password});
   }
 
   async exists(user: IUser): Promise<boolean> {
-    return !!(await this.usersRepository.findOne({username: user.username}));
+    return !!(await this.usersRepository.findOne({email: user.email}));
   }
 }

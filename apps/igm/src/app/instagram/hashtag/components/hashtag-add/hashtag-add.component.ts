@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IgmInputComponent } from '@igm/common/igm-input/igm-input.component';
 import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
 import { Observable } from 'rxjs';
 import { Hashtag } from './hashtag';
@@ -11,7 +12,8 @@ import { Hashtag } from './hashtag';
 })
 export class HashtagAddComponent {
 
-  selectedCategories: ICategory[] = [];
+  @ViewChild(IgmInputComponent)
+  searchInput: IgmInputComponent;
 
   @Input()
   categories$: Observable<ICategory[]>;
@@ -19,17 +21,26 @@ export class HashtagAddComponent {
   @Output()
   add = new EventEmitter<IHashtag>();
 
-  formGroup: FormGroup = new FormGroup({
+  selectedCategories: ICategory[] = [];
+
+  form: FormGroup = new FormGroup({
     text: new FormControl('', Validators.required)
   });
 
   addHashtag(): void {
-    const hashtag: IHashtag = new Hashtag(this.formGroup.value.text);
-    hashtag.categories = this.selectedCategories;
-    this.add.emit(hashtag);
+    if (this.form.valid) {
+      const hashtag: IHashtag = new Hashtag(this.form.value.text);
+      hashtag.categories = this.selectedCategories;
+      this.add.emit(hashtag);
+      this.reset();
+    }
   }
 
   reset(): void {
-    this.formGroup.reset();
+    this.form.reset();
+    this.form.controls.text.markAsUntouched();
+    this.form.markAsUntouched();
+    this.form.updateValueAndValidity();
+    this.searchInput.defocus();
   }
 }

@@ -1,13 +1,20 @@
-<div class="search">
+<div [hidden]="noCategories$ | async"
+     class="search">
   <igm-input class="no-padding" icon="search"
-             [(ngModel)]="searchTerm">Search</igm-input>
+             #searchInput>Search</igm-input>
+</div>
+
+<div class="error" *ngIf="noCategories$ | async">
+  You don't have any categories
 </div>
 
 <mat-spinner *ngIf="loading$ | async"></mat-spinner>
 
-<mat-selection-list [multiple]="multiple" [compareWith]="compareWith">
+<mat-selection-list [multiple]="multiple"
+                    [hidden]="noCategories$ | async"
+                    [compareWith]="compareWith">
 
-  <mat-list-option *ngFor="let category of (categories$ | async) | igmTextFilter: searchTerm"
+  <mat-list-option *ngFor="let category of (categories$ | async) | igmTextFilter: searchInput.value"
                    [selected]="isSelected(category)"
                    [value]="category">
 

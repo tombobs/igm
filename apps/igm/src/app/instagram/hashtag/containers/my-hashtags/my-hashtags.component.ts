@@ -7,9 +7,9 @@ import { DeleteConfirmationComponent } from '@igm/common/delete-confirmation/del
 import { Category } from '../../components/category-add/category';
 import {
   addHashtag,
-  categories,
+  categories, categoriesLoading,
   deleteHashtag,
-  hashtags,
+  hashtags, hashtagsLoading,
   selectedHashtag,
   selectHashtag,
   updateHashtag
@@ -23,6 +23,7 @@ import {
 export class MyHashtagsComponent implements OnInit {
 
   hashtags$: Observable<IHashtag[]> = this.store.select(hashtags);
+  hashtagsLoading$: Observable<boolean> = this.store.select(hashtagsLoading);
   selectedHashtag$: Observable<IHashtag> = this.store.select(selectedHashtag);
   categories$: Observable<ICategory[]> = this.store.select(categories);
 

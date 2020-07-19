@@ -1,15 +1,25 @@
-<div class="search">
-  <igm-input class="no-padding" icon="search"
-             [(ngModel)]="searchTerm">Search</igm-input>
+<div class="search"
+     [hidden]="noHashtags$ | async">
+  <igm-input class="no-padding"
+             icon="search"
+             #searchInput>Search</igm-input>
 </div>
 
-<mat-spinner [diameter]="50" class="spinner" *ngIf="loading$ | async"></mat-spinner>
+<div class="error" *ngIf="noHashtags$ | async">
+  You don't have any hashtags
+</div>
+
+<mat-spinner [diameter]="50"
+             class="spinner"
+             *ngIf="loading$ | async"></mat-spinner>
 
 <mat-selection-list [multiple]="multiple"
+                    [hidden]="noHashtags$ | async"
                     [compareWith]="compareWith">
 
-  <mat-list-option *ngFor="let hashtag of (hashtags$ | async) | igmTextFilter: searchTerm"
-                   [value]="hashtag" [selected]="isSelected(hashtag)">
+  <mat-list-option *ngFor="let hashtag of (hashtags$ | async) | igmTextFilter: searchInput?.value"
+                   [value]="hashtag"
+                   [selected]="isSelected(hashtag)">
 
     <div>
       <span>#{{hashtag.text}}</span>

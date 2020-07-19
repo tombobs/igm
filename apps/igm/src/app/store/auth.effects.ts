@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, filter, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from '../common/auth/auth.service';
-import { IgmToastr } from '../common/toastr.service';
+import { IgmSnackBar } from '../common/snack-bar/snack-bar.service';
 import { login, loginError, loginSuccess, logout, registerUser } from './auth.actions';
 
 @Injectable()
@@ -50,7 +50,7 @@ export class AuthEffects {
   ), {dispatch: false})
 
   constructor(private actions$: Actions,
-              private toastr: IgmToastr,
+              private toastr: IgmSnackBar,
               private router: Router,
               private authService: AuthService) {
   }

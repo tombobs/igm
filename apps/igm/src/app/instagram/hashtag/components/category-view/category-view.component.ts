@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   templateUrl: './category-view.component.html',
   styleUrls: ['./category-view.component.scss']
 })
-export class CategoryViewComponent implements OnInit {
+export class CategoryViewComponent {
 
   @Input()
   category: ICategory;
@@ -17,10 +17,4 @@ export class CategoryViewComponent implements OnInit {
 
   @Input()
   hashtags$: Observable<IHashtag[]>;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

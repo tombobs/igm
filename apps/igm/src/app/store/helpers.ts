@@ -6,6 +6,13 @@ export const remove = <T extends IHaveAnId>(entities: T[], entityToRemove: T): T
   return entities.filter(cat => cat.id !== entityToRemove.id);
 }
 
+export const removeFromAll = <T extends IHaveAnId>(entities: T[], removeFromArrayKey: string, entityToRemove: T): T[] => {
+  return entities
+    .map(h => {
+      return { ...h, [removeFromArrayKey]: remove(h[removeFromArrayKey], entityToRemove) };
+    });
+}
+
 export const add = <T extends IHaveAnId>(entities: T[], entityToAdd: T): T[] => {
   return [entityToAdd].concat(entities);
 }

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { ICategory, IHashtag } from '@rly.gd/api-interfaces';
 import { filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { IgmToastr } from '../../../common/toastr.service';
+import { IgmSnackBar } from '@igm/common/snack-bar/snack-bar.service';
 import { HashtagService } from '../hashtag.service';
 import {
   addCategory,
@@ -126,7 +126,7 @@ export class HashtagEffects {
   ));
 
   constructor(private actions$: Actions,
-              private toastr: IgmToastr,
+              private toastr: IgmSnackBar,
               private store: Store,
               private hashtagService: HashtagService) {
   }

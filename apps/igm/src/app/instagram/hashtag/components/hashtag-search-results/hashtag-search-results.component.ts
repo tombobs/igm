@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IHashtag } from '@rly.gd/api-interfaces';
-import { IgmToastr } from '../../../../common/toastr.service';
+import { IgmSnackBar } from '../../../../common/snack-bar/snack-bar.service';
 
 @Component({
   selector: 'igm-hashtag-search-results',
@@ -17,7 +17,9 @@ export class HashtagSearchResultsComponent {
     return this.searchResults && this.searchResults.map(d => '#' + d.text);
   }
 
-  constructor(private toastr: IgmToastr) { }
+  hashtagPrefix = '.\n.\n.\n.\n.\n';
+
+  constructor(private toastr: IgmSnackBar) { }
 
   onCopy(): void {
     this.toastr.success('Hashtags copied to clipboard');

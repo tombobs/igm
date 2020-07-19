@@ -1,4 +1,4 @@
-@import "../../../styles/main";
+@import "variables";
 
 $contentHeight: 68vh;
 $contentGutterTop: 67px;
@@ -8,14 +8,14 @@ $contentGutterTop: 67px;
   height: 100%;
 
   &.list-error .list {
-    border-color: var(--error-color);
+    border-color: mat-color($igmWarn);
   }
 }
 
 
 .view {
-  padding: var(--half-padding);
-  border: var(--border);
+  padding: $halfPadding;
+  border: $border;
   height: $contentHeight;
 
   .buttons {
@@ -29,15 +29,15 @@ $contentGutterTop: 67px;
   display: flex;
   flex-direction: column;
   height: $contentHeight;
-  padding: var(--querter-padding);
-  border: var(--border);
-  max-width: var(--content-max-width);
+  padding: $quarterPadding;
+  border: $border;
+  max-width: $contentMaxWidth;
 }
 
 .list-buttons {
   display: flex;
   align-items: center;
-  padding: var(--half-padding);
+  padding: $halfPadding;
   height: $contentGutterTop;
 }
 
@@ -48,7 +48,18 @@ $contentGutterTop: 67px;
 
 .mat-drawer {
   width: 30vw;
-  padding: 0 0 0 var(--half-padding);
+  padding: 0 0 0 $halfPadding;
   border: none;
   overflow: visible;
+}
+
+@media screen and (max-width: $sizeSm) {
+
+  :host(.show-side) .mat-drawer.mat-drawer-end {
+    width: 100%;
+  }
+
+  .list {
+    max-width: 100%;
+  }
 }

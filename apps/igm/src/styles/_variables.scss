@@ -1,21 +1,40 @@
-:root {
+@import '~@angular/material/theming';
 
-  --font-size: 10px;
-  --font-family: Roboto, "Helvetica Neue", sans-serif;
-  --padding: 1.5rem;
-  --content-max-width: 80vw;
-  --animation: cubic-bezier(0.35, 0, 0.25, 1) 500ms;
-
-  --nav-bg-color: black;
-  --nav-text-color: white;
-  --border-color: #bbb;
-  --error-color: #e12222;
-
-  --half-padding: calc(var(--padding) / 2);
-  --third-padding: calc(var(--padding) / 3);
-  --querter-padding: calc(var(--padding) / 4);
-}
-
+/*
+Theme colors
+ */
+$igmPrimary: mat-palette($mat-blue-gray);
+$igmAccent: mat-palette($mat-light-green);
+$igmWarn: mat-palette($mat-red);
+/*
+Navs
+ */
+$topNavHeight: 50px;
+$topNavBg: mat-color($igmPrimary);
+$topNavTextColor: white;
+$topNavMaxHeight: 8vh;
+$sideBarWidth: 100px;
+$sideNavBg: mat-color($igmPrimary);
+$sideNavTextColor: white;
+/*
+Border
+ */
+$border: 1px solid mat-color($igmPrimary);
+/*
+Fonts
+ */
+$fontSize: 10px;
+$fontFamily: "Helvetica";
+/*
+Padding
+ */
+$padding: 1.5rem;
+$halfPadding: 0.75rem;
+$quarterPadding: 0.375rem;
+/*
+Responsive
+ */
 $sizeSm: 500px;
 $sizeMd: 800px;
 $sizeLg: 1000px;
+$contentMaxWidth: 80vw;

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { IgmCommonModule } from '../../common/common.module';
-import { MATERIAL_IMPORTS } from '../../common/material-imports';
+import { IgmCommonModule } from '@igm/common/common.module';
+import { MATERIAL_IMPORTS } from '@igm/common/material-imports';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryViewComponent } from './components/category-view/category-view.component';
@@ -17,8 +17,7 @@ import { HashtagComponent } from './containers/hashtag.component';
 import { MyCategoriesComponent } from './containers/my-categories/my-categories.component';
 import { MyHashtagsComponent } from './containers/my-hashtags/my-hashtags.component';
 import { HashtagRoutingModule } from './hashtag.routing.module';
-import { hashtagReducer } from './store';
-import { HashtagEffects } from './store/hashtag.effects';
+import { hashtagReducer, HashtagEffects } from './store';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,8 @@
                     (showSideChange)="onShowSideChange($event)">
 
   <ng-container igm-list>
-    <igm-category-list class="scroll" [categories$]="categories$"
+    <igm-category-list [categories$]="categories$"
+                       [loading$]="categoriesLoading$"
                        [selectedCategories]="[selectedCategory$ | async]"
                        (selectedCategoriesChange)="onSelectedCategoriesChange($event)"></igm-category-list>
   </ng-container>
@@ -18,7 +19,8 @@
   </ng-container>
 
   <ng-container igm-view-buttons>
-    <igm-button icon="delete" (click)="onDeleteClick()">Delete</igm-button>
+    <igm-button icon="delete"
+                (click)="onDeleteClick()">Delete</igm-button>
   </ng-container>
 
 </igm-list-view-page>

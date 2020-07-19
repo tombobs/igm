@@ -1,6 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-
-import { RegisterComponent } from '../welcome/register/register.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'igm-home',
@@ -8,8 +6,4 @@ import { RegisterComponent } from '../welcome/register/register.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-
-
-
 }

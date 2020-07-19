@@ -20,7 +20,7 @@
   <mat-menu #menu="matMenu">
     <div mat-menu-item [disabled]="true">
       <mat-icon>account_circle</mat-icon>
-      <span>{{loggedInUser.username}}</span>
+      <span>{{loggedInUser.email}}</span>
     </div>
 
     <button mat-menu-item (click)="logout.emit()">Logout</button>

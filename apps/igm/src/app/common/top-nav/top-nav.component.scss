@@ -1,6 +1,8 @@
+@import "variables";
+
 :host {
-  background: var(--nav-bg-color);
-  color: var(--nav-text-color);
+  background: $topNavBg;
+  color: $topNavTextColor;
   display: flex;
   align-items: center;
 }

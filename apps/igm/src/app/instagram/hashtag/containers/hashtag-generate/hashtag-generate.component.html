@@ -4,7 +4,6 @@
                     class="reduce-view-padding">
 
   <ng-container igm-list>
-    <div class="heading">With these categories</div>
     <igm-category-list [categories$]="categories$"
                        [withCounts]="true"
                        [multiple]="true"
@@ -17,10 +16,15 @@
   </ng-container>
 
   <ng-container igm-list-buttons>
-    <button mat-button mat-stroked-button (click)="onSearch()">
-      <mat-icon>search</mat-icon>
+    <span class="medium generate-button-label">
+      Select categories below
+    </span>
+
+    <igm-button [disabled]="!selectedCategories?.length"
+                icon="search"
+                (click)="onSearch()">
       Generate random hashtags
-    </button>
+    </igm-button>
   </ng-container>
 </igm-list-view-page>
 

@@ -9,6 +9,10 @@ igm-root {
     height: 100%;
   }
 
+  .mat-sidenav-container {
+    max-width: 90vw;
+  }
+
   .mat-list-text > * {
     display: inline;
   }

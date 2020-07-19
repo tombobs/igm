@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { IHashtag } from '@rly.gd/api-interfaces';
-import { State } from '../../../store';
+import { State } from '@igm/store';
 import { IHashtagState } from './hashtag.state';
 
 export const hashtagState = (state: State) => state.hashtag;
